@@ -13,7 +13,7 @@
       ![02](https://user-images.githubusercontent.com/26864945/55312009-67d42380-549f-11e9-8325-9265c007c2ad.PNG)
 
 1. VP 데이터 폴더를 xuv 파일로 변경. (packing)
-   1. 아래 명령어 이용하여 4개 xuv 생성
+   1. 아래 명령어 이용하여 4개 xuv 생성\.
       ```c
       \tools\bin\packfile.exe 01 ptn01.xuv
       \tools\bin\packfile.exe 02 ptn02.xuv
