@@ -9,6 +9,7 @@
    1. Language 단위로 폴더 분리
    
       예.) 4개 language 의 경우, \01, \02, \03, \04 폴더 생성
+      
       → 각각의 \header, \prompts 폴더 생성 및 데이터 이동. (\01 : 0~15, \02 : 16 ~ 31, …)
       ![02](https://user-images.githubusercontent.com/26864945/55312009-67d42380-549f-11e9-8325-9265c007c2ad.PNG)
 
