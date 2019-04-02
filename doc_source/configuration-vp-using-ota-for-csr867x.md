@@ -80,4 +80,4 @@
    ```
 
 1. Main.c / Sink_private.h / Sink_upgrade.c
-   > Upgrade complete 후, Reboot 시 “전원이 켜집니다” VP 재생을 위해 해당 파티션을 마운트 시킨 후에는 Upgrade commit 시 이전 파티션을 삭제하지 못하여, 추후 재차 Upgrade 시 파티션 접근 에러 발생함. 이를 보완하기 위하여, complete 후 Reboot 시 “전원이 켜집니다” VP 재생하지 않도록 보완 코드 삽입.
+   > _Upgrade complete 후, Reboot 시 “전원이 켜집니다” VP 재생을 위해 해당 파티션을 마운트 시킨 후에는 Upgrade commit 시 이전 파티션을 삭제하지 못하여, 추후 재차 Upgrade 시 파티션 접근 에러 발생함. 이를 보완하기 위하여, complete 후 Reboot 시 “전원이 켜집니다” VP 재생하지 않도록 보완 코드 삽입._
