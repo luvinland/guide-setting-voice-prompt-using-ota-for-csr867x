@@ -6,19 +6,19 @@
 
 1. app\sink\image 폴더에 생성된 \header, \prompts, \refname 폴더 이동 (잘라내기)
    1. 임의 지정 폴더로 이동 (잘라내기) (예. app\sink\audioprompts)
+   
    1. Language 단위로 폴더 분리   
       예.) 4개 language 의 경우, \01, \02, \03, \04 폴더 생성  
       → 각각의 \header, \prompts 폴더 생성 및 데이터 이동. (\01 : 0~15, \02 : 16 ~ 31, …)  
       ![02](https://user-images.githubusercontent.com/26864945/55312009-67d42380-549f-11e9-8325-9265c007c2ad.PNG)
 
-1. VP 데이터 폴더를 xuv 파일로 변경. (packing)
-   1. 아래 명령어 이용하여 4개 xuv 생성\.
-      ```c
-      \tools\bin\packfile.exe 01 ptn01.xuv
-      \tools\bin\packfile.exe 02 ptn02.xuv
-      \tools\bin\packfile.exe 03 ptn03.xuv
-      \tools\bin\packfile.exe 04 ptn04.xuv
-      ```
+1. VP 데이터 폴더를 xuv 파일로 변경. (packing) : 아래 명령어 이용하여 4개 xuv 생성
+   ```c
+   \tools\bin\packfile.exe 01 ptn01.xuv
+   \tools\bin\packfile.exe 02 ptn02.xuv
+   \tools\bin\packfile.exe 03 ptn03.xuv
+   \tools\bin\packfile.exe 04 ptn04.xuv
+   ```
 
 ### 기본 파티션 생성.
 1. 파티션 설정 파일 작성. (vp.ptn)
