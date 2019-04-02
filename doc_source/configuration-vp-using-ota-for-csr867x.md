@@ -1,6 +1,6 @@
 # configuration-vp-using-ota-for-csr867x
 
-### Step 1. VP 데이터 파일 (\*.idx, \*.prm) 생성
+## Step 1. VP 데이터 파일 (\*.idx, \*.prm) 생성
 1. Language 개수 → Event mapping → Generate  
 ![01](https://user-images.githubusercontent.com/26864945/55311980-5854da80-549f-11e9-9773-55d2b6e4e1a4.PNG)
 
@@ -20,7 +20,7 @@
    \tools\bin\packfile.exe 04 ptn04.xuv
    ```
 
-### Step 2. 기본 파티션 생성.
+## Step 2. 기본 파티션 생성.
 1. 파티션 설정 파일 작성. (vp.ptn)
    ```c
    0, 64K, RO, ptn01.xuv  # 첫 번째 언어 (위 1-C-i. 에서 생성한 xuv 파일)
@@ -53,7 +53,7 @@
    };
    ```
 
-### Step 3. XIDE sink project 설정 변경.
+## Step 3. XIDE sink project 설정 변경.
 1. Define symbols : ENABLE_SQIFVP
 
 1. OTA App. GAIA Control 버전에 따라 GAIA SPP 활성화 필요함.
@@ -65,4 +65,19 @@
       #define GAIA_TRANSPORT_NO_RFCOMM 1
       #define GAIA_TRANSPORT_SPP 1
       ```
-      
+   
+   1. SPP 방식이 속도가 빠름.
+
+## Step 4. ADK Source 수정.
+1. Sink_audio_prompts.c
+   ```c
+   #if 0 /* Jace. PSKEY_FSTAB 1000 파티션 mount 를 위해 panic() 무시 처리함. */
+   if(!PartitionMountFilesystem(PARTITION_SERIAL_FLASH, theSink.audio_prompt_language , PARTITION_LOWER_PRIORITY))
+        Panic();
+   #else
+   PartitionMountFilesystem(PARTITION_SERIAL_FLASH, theSink.audio_prompt_language , PARTITION_LOWER_PRIORITY);
+   #endif
+   ```
+
+1. Main.c / Sink_private.h / Sink_upgrade.c
+   > Upgrade complete 후, Reboot 시 “전원이 켜집니다” VP 재생을 위해 해당 파티션을 마운트 시킨 후에는 Upgrade commit 시 이전 파티션을 삭제하지 못하여, 추후 재차 Upgrade 시 파티션 접근 에러 발생함. 이를 보완하기 위하여, complete 후 Reboot 시 “전원이 켜집니다” VP 재생하지 않도록 보완 코드 삽입.
