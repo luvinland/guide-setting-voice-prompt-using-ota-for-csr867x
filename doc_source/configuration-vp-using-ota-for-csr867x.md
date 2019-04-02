@@ -1,7 +1,7 @@
 # configuration-vp-using-ota-for-csr867x
 
 ### VP 데이터 파일 (\*.idx, \*.prm) 생성
-   1. Language 개수 → Event mapping → Generate\.
+   1. Language 개수 → Event mapping → Generate
    
    ![01](https://user-images.githubusercontent.com/26864945/55311980-5854da80-549f-11e9-9773-55d2b6e4e1a4.PNG)
    
