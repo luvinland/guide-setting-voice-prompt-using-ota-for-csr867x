@@ -20,16 +20,7 @@
 
 ### 기본 파티션 생성.
    1. 파티션 설정 파일 작성. (vp.ptn)
-   ```c
-   0, 64K, RO, ptn01.xuv  # 첫 번째 언어 (위 1-C-i. 에서 생성한 xuv 파일)
-   1, 64K, RO, ptn02.xuv
-   2, 64K, RO, ptn03.xuv
-   3, 64K, RO, ptn04.xuv
-   4, 64K, RO, (none)     # 첫 번째 언어의 OTA 를 위한 공간
-   5, 64K, RO, (none)
-   6, 64K, RO, (none)
-   7, 64K, RO, (none)
-   ```
+   
    1. 외부 메모리 초기화
    ```c
    nvscmd.exe –usb 0 erase
