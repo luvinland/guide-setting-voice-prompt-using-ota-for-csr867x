@@ -1,6 +1,6 @@
 # configuration-vp-using-ota-for-csr867x
 
-### VP 데이터 파일 (\*.idx, \*.prm) 생성
+### Step 1. VP 데이터 파일 (\*.idx, \*.prm) 생성
 1. Language 개수 → Event mapping → Generate  
 ![01](https://user-images.githubusercontent.com/26864945/55311980-5854da80-549f-11e9-9773-55d2b6e4e1a4.PNG)
 
@@ -20,7 +20,7 @@
    \tools\bin\packfile.exe 04 ptn04.xuv
    ```
 
-### 기본 파티션 생성.
+### Step 2. 기본 파티션 생성.
 1. 파티션 설정 파일 작성. (vp.ptn)
    ```c
    0, 64K, RO, ptn01.xuv  # 첫 번째 언어 (위 1-C-i. 에서 생성한 xuv 파일)
@@ -52,4 +52,17 @@
       UPGRADE_PARTITION_DOUBLE(0x1003,0x1007,MOUNTED)
    };
    ```
-     
+
+### Step 3. XIDE sink project 설정 변경.
+1. Define symbols : ENABLE_SQIFVP
+
+1. OTA App. GAIA Control 버전에 따라 GAIA SPP 활성화 필요함.
+
+   1. GAIA Control v3 의 경우 XIDE GAIA SPP feature : Enabled
+   
+   1. Gaia_private.h (define 추가, line 15) → VM lib. clean → build.
+      ```c
+      #define GAIA_TRANSPORT_NO_RFCOMM 1
+      #define GAIA_TRANSPORT_SPP 1
+      ```
+      
