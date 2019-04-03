@@ -169,7 +169,7 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
 ![03](https://user-images.githubusercontent.com/26864945/55312027-71f62200-549f-11e9-8dfe-c3cac2a8a082.PNG)
 
 ## Comment.
-1. Upgrade 시 0번 파티션의 추가 파티션인 4번 파티션에 데이터가 저장됨. (Double 구성 2-D. 참조.)
+1. Upgrade 시 0번 파티션의 추가 파티션인 4번 파티션에 데이터가 저장됨. (Double 구성 Step 2.-4. 참조.)
 
 1. Upgrade complete 후, Reboot, Commit 시 0번 파티션 데이터 삭제함.
 
