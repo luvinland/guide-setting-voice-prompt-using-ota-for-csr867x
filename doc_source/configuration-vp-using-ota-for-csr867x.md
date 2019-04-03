@@ -1,4 +1,5 @@
-# configuration-vp-using-ota-for-csr867x
+# Get Started
+CSR867x 이용한 OTA VP 적용 방법 가이드.
 
 ## Step 1. VP 데이터 파일 (\*.idx, \*.prm) 생성
 1. Language 개수 → Event mapping → Generate  
@@ -158,3 +159,33 @@
       ```
       
    1. 생성된 bin 파일 단말기에 저장.
+
+## Step 7. GAIA Control App. 이용한 Upgrade.
+1. 헤드셋 연결 후 Upgrade 메뉴 진입.
+
+1. 저장한 bin 파일 선택 후 업그레이드 진행.
+
+1. `File transfer complete` [CONTINUE] → `Data commit` [CONTINUE] → `Upgrade complete` [OK] → `Power OFF` 됨 (“전원이 꺼집니다” VP 재생됨).  
+![03](https://user-images.githubusercontent.com/26864945/55312027-71f62200-549f-11e9-8dfe-c3cac2a8a082.PNG)
+
+## Comment.
+1. Upgrade 시 0번 파티션의 추가 파티션인 4번 파티션에 데이터가 저장됨. (Double 구성 2-D. 참조.)
+
+1. Upgrade complete 후, Reboot, Commit 시 0번 파티션 데이터 삭제함.
+
+1. `PSKEY_FSTAB` 에 1000 은 1004 로 교체됨. (파티션 index 교체)
+   ```c
+   &25E6 = 0000 1004 1001 1002 1003
+   ```
+   
+1. 추후, 0번 파티션 Upgrade 시 4번 파티션 데이터 삭제되며, `PSKEY_FSTAB` 의 1004 는 1000 으로 교체됨.
+   ```c
+   &25E6 = 0000 1000 1001 1002 1003
+   ```
+   
+1. 예.) 3번 파티션 Upgrade 시 7번 파티션에 데이터 저장되며, 3번 파티션 삭제되고, `PSKEY_FSTAB` 의 1003 은 1007 로 교체됨.
+   ```c
+   &25E6 = 0000 1000 1001 1002 1007
+   ```
+   
+1. ADK 4.0 기준으로 작성됨
