@@ -11,8 +11,9 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
    
    1. Language 단위로 폴더 분리   
       예.) 4개 language 의 경우, `\01`, `\02`, `\03`, `\04` 폴더 생성  
-      → 각각의 `\header`, `\prompts` 폴더 생성 및 데이터 이동. (`\01` : 0~15, `\02` : 16 ~ 31, …)  
-      ![02](https://user-images.githubusercontent.com/26864945/55312009-67d42380-549f-11e9-8325-9265c007c2ad.PNG)
+      → 각각의 `\header`, `\prompts` 폴더 생성 및 데이터 이동. (`\01` : 0~15, `\02` : 16 ~ 31, …)
+      
+         ![02](https://user-images.githubusercontent.com/26864945/55312009-67d42380-549f-11e9-8325-9265c007c2ad.PNG)
 
 1. VP 데이터 폴더를 xuv 파일로 변경. (packing) : 아래 명령어 이용하여 4개 xuv 생성
    ```c
@@ -166,8 +167,9 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
 
 1. 저장한 bin 파일 선택 후 업그레이드 진행.
 
-1. `File transfer complete` [CONTINUE] → `Data commit` [CONTINUE] → `Upgrade complete` [OK] → `Power OFF` 됨 (“전원이 꺼집니다” VP 재생됨).  
-![03](https://user-images.githubusercontent.com/26864945/55312027-71f62200-549f-11e9-8dfe-c3cac2a8a082.PNG)
+1. `File transfer complete` [CONTINUE] → `Data commit` [CONTINUE] → `Upgrade complete` [OK] → `Power OFF` 됨 (“전원이 꺼집니다” VP 재생됨).
+
+   ![03](https://user-images.githubusercontent.com/26864945/55312027-71f62200-549f-11e9-8dfe-c3cac2a8a082.PNG)
 
 ## Comment.
 1. Upgrade 시 0번 파티션의 추가 파티션인 4번 파티션에 데이터가 저장됨. (Double 구성 [Step 2.-4.](https://github.com/luvinland/configuration-vp-using-ota-for-csr867x/blob/master/doc_source/configuration-vp-using-ota-for-csr867x.md#step-2-%EA%B8%B0%EB%B3%B8-%ED%8C%8C%ED%8B%B0%EC%85%98-%EC%83%9D%EC%84%B1) 참조.)
