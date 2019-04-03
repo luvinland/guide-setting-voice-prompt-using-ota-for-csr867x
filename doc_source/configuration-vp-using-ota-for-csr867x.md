@@ -116,7 +116,7 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
    1. 기존 VP 데이터에서 VP 교체 가능함. (또는 추가 PSKEY 변경을 통해 VP language 축소는 가능)  
    ☞ 파티션 단위 업그레이드 (Language 교체)
    
-   1. Step 1.-1. 참조하여 신규 VP 데이터 생성.  
+   1. [Step 1.-1.](https://github.com/luvinland/configuration-vp-using-ota-for-csr867x/blob/master/doc_source/configuration-vp-using-ota-for-csr867x.md#step-1-vp-%EB%8D%B0%EC%9D%B4%ED%84%B0-%ED%8C%8C%EC%9D%BC-idx-prm-%EC%83%9D%EC%84%B1) 참조하여 신규 VP 데이터 생성.  
    예.) `\01E` 폴더에 `\\header`, `\prompts` 이동. (`\01E` : 0~15 데이터)
    
    1. VP 데이터 폴더를 xuv 파일로 변경. (packing)
@@ -169,7 +169,7 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
 ![03](https://user-images.githubusercontent.com/26864945/55312027-71f62200-549f-11e9-8dfe-c3cac2a8a082.PNG)
 
 ## Comment.
-1. Upgrade 시 0번 파티션의 추가 파티션인 4번 파티션에 데이터가 저장됨. (Double 구성 Step 2.-4. 참조.)
+1. Upgrade 시 0번 파티션의 추가 파티션인 4번 파티션에 데이터가 저장됨. (Double 구성 [Step 2.-4.](https://github.com/luvinland/configuration-vp-using-ota-for-csr867x/blob/master/doc_source/configuration-vp-using-ota-for-csr867x.md#step-2-%EA%B8%B0%EB%B3%B8-%ED%8C%8C%ED%8B%B0%EC%85%98-%EC%83%9D%EC%84%B1) 참조.)
 
 1. Upgrade complete 후, Reboot, Commit 시 0번 파티션 데이터 삭제함.
 
