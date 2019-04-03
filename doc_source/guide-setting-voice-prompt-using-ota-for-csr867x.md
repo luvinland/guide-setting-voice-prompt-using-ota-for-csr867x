@@ -16,12 +16,12 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
          ![02](https://user-images.githubusercontent.com/26864945/55312009-67d42380-549f-11e9-8325-9265c007c2ad.PNG)
 
 1. VP 데이터 폴더를 xuv 파일로 변경. (packing) : 아래 명령어 이용하여 4개 xuv 생성
-   ~~~c
+   ```c
    \tools\bin\packfile.exe 01 ptn01.xuv
    \tools\bin\packfile.exe 02 ptn02.xuv
    \tools\bin\packfile.exe 03 ptn03.xuv
    \tools\bin\packfile.exe 04 ptn04.xuv
-   ~~~
+   ```
 
 ## Step 2. 기본 파티션 생성.
 1. 파티션 설정 파일 작성. `vp.ptn`
