@@ -4,7 +4,7 @@ CSR867x 이용한 OTA VP 적용 방법 가이드.
 ## Step 1. VP 데이터 파일 (\*.idx, \*.prm) 생성
 1. Language 개수 → Event mapping → Generate
 
-  ![01](https://user-images.githubusercontent.com/26864945/55311980-5854da80-549f-11e9-9773-55d2b6e4e1a4.PNG)
+   ![01](https://user-images.githubusercontent.com/26864945/55311980-5854da80-549f-11e9-9773-55d2b6e4e1a4.PNG)
 
 1. `app\sink\image` 폴더에 생성된 `\header`, `\prompts`, `\refname` 폴더 이동 (잘라내기)
    1. 임의 지정 폴더로 이동 (잘라내기) (예. `app\sink\audioprompts`)
