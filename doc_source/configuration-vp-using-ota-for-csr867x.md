@@ -107,3 +107,54 @@
    ```c
    &25E6 = 0000 1000 1001 1002 1003
    ```
+
+## Step 6. 업그레이드 파일 생성.
+1. 새로운 VP 데이터 생성.
+   1. 업그레이드를 통해서는 파티션 구조 변경 불가능.
+   
+   1. 기존 VP 데이터에서 VP 교체 가능함. (또는 추가 PSKEY 변경을 통해 VP language 축소는 가능)  
+   ☞ 파티션 단위 업그레이드 (Language 교체)
+   
+   1. Step 1.-1. 참조하여 신규 VP 데이터 생성.  
+   예.) `\01E` 폴더에 `\\header`, `\prompts` 이동. (`\01E` : 0~15 데이터)
+   
+   1. VP 데이터 폴더를 xuv 파일로 변경. (packing)
+      ```c
+      \tools\bin\packfile.exe 01E ptn01E.xuv
+      ```
+      
+   1. Upgrade 를 위한 upd 파일 작성. `upgrade_partition.upd`
+      ```c
+      # ADK upgrade requires an empty signature appended to the end of the file. add_empty_signature
+      
+      # Set the upgrade version and previous version(s)
+      # that are compatible to upgrade from. The minor
+      # version can be '*' to act as a wildcard.
+      upgrade_version 2.0 # Sink_upgrade.c 버전 정보 참조.
+      compatible_upgrade 0.*
+      compatible_upgrade 1.*
+      compatible_upgrade 2.*
+      
+      # Set the ps config version and previous version(s)
+      # that are compatible to upgrade from
+      ps_config_version 2 # Sink_upgrade.c 버전 정보 참조.
+      ps_prev_config_version 0
+      ps_prev_config_version 1
+      
+      # list all partition starting from index 0 including partition type
+      # <partition number> <partition type> <full path filename>
+      # DFU file with file system
+      0 3 ptn01E.xuv # 3번 타입의 0번 파티션을 ptn01E.xuv 파일로 업그레이드 함.
+      ```
+      
+   1. 업그레이드 xuv 파일 생성.
+      ```c
+      \tools\bin\UpgradeFileGen.exe upgrade_partition.upd upgrade_file.xuv
+      ```
+      
+   1. Xuv 파일을 업그레이드 bin 파일로 변환.
+      ```c
+      \tools\bin\XUV2BIN.exe -d upgrade_file.xuv upgrade_file.bin
+      ```
+      
+   1. 생성된 bin 파일 단말기에 저장.
