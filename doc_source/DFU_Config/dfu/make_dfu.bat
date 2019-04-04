@@ -1,0 +1,2 @@
+..\..\..\tools\bin\dfubuild -v -pedantic -t 3 -f dump_dfu.dfu -uv 0xa12 -up 1 -ui "BSE FIRMWARE UPGRADE" -s ..\..\..\firmware\assisted\unified\rick\stack_unsigned.xpv -h ..\image.fs -p3 . ..\STACK.psr ..\CONFIG.psr
+pause
