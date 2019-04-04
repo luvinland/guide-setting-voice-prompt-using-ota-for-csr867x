@@ -2,7 +2,7 @@
 CSR867x 이용한 DFU 적용 방법 가이드.
 
 ## Attatch File
-[DFU_Config.zip](https://github.com/luvinland/guide-setting-voice-prompt-using-ota-for-csr867x/tree/master/doc_source/DFU_Config)
+[DFU_Config](https://github.com/luvinland/guide-setting-voice-prompt-using-ota-for-csr867x/tree/master/doc_source/DFU_Config)
 
 ## File Info
 1. `make_dfu.bat` "\ADK4.x.x\apps\sink\dfu\" copy 하고 실행. (Cf. 경로 확인할 것)
